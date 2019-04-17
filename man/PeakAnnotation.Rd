@@ -18,7 +18,19 @@
 \item{...}{Objects of class \code{PeaksAnnotation}.}
 }
 \description{
-This class defines how peaks in and MS spectrum are annotated.
+This class defines how peaks in an MS spectrum are annotated. In its current
+preliminary implementation, if defines lists of peaks and and annotations,
+both of which must have the same length. Each element of \code{peaks} is
+annotated by the corresponding element of \code{annotations}. Elements of \code{peaks}
+can contain a single numeric corresponding to the m/z of a peak in a
+centroided spectrum, of a vector of m/z values when a set of peaks (for
+instance in case of profile mode data) are annotated by an
+annotation.
+
+Currently, there are no constrains on either \code{peaks} and \code{annotations}
+elements. The latters can be either descriptive characters, as in the
+examples below, or could be encoded as dataframes. This is likely to change
+in the future.
 }
 \examples{
 pa1 <- PeakAnnotation(peaks = list(123.3,

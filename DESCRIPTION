@@ -1,5 +1,5 @@
 Package: Spectrum
-Title: Spetrum Infrastructure for Mass Spectrometry Data
+Title: Spectrum Infrastructure for Mass Spectrometry Data
 Version: 0.0.1
 Authors@R:
     c(person(given = "Laurent", family = "Gatto",

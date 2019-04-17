@@ -6,7 +6,20 @@
 ##'
 ##' @description
 ##'
-##' This class defines how peaks in and MS spectrum are annotated.
+##' This class defines how peaks in an MS spectrum are annotated. In its current
+##' preliminary implementation, if defines lists of peaks and and annotations,
+##' both of which must have the same length. Each element of `peaks` is
+##' annotated by the corresponding element of `annotations`. Elements of `peaks`
+##' can contain a single numeric corresponding to the m/z of a peak in a
+##' centroided spectrum, of a vector of m/z values when a set of peaks (for
+##' instance in case of profile mode data) are annotated by an
+##' annotation.
+##'
+##'
+##' Currently, there are no constrains on either `peaks` and `annotations`
+##' elements. The latters can be either descriptive characters, as in the
+##' examples below, or could be encoded as dataframes. This is likely to change
+##' in the future.
 ##'
 ##' @param peaks A `list` of peak m/z values to be annotated.
 ##' @param annotations A `list` of peak annotations.
@@ -62,8 +75,9 @@ setValidity("PeakAnnotation",
             })
 
 ##' @export PeakAnnotation
-PeakAnnotation <- function(peaks, annotations)
-    .PeakAnnotation(peaks = peaks, annotations = annotations)
+PeakAnnotation <- function(peaks = list(), annotations = list())
+    .PeakAnnotation(peaks = peaks,
+                    annotations = annotations)
 
 ##' @exportMethod show
 setMethod("show", "PeakAnnotation",
