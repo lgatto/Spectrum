@@ -18,6 +18,11 @@ Authors@R:
 	     role = "aut"))
 Description: The Spectrum packages defines a flexible infrastructure
    for storing and handling for single mass spectrometry spectra.
+Depends:
+    R (>= 3.5.0),
+    S4Vectors,
+    methods,
+    ProtGenerics
 BugReports: https://github.com/lgatto/Spectrum/issues
 URL: https://github.com/lgatto/Spectrum
 License: Artistic-2.0

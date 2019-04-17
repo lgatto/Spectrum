@@ -6,7 +6,9 @@
 \alias{class:PeakAnnotations}
 \alias{PeakAnnotation-class}
 \alias{PeakAnnotations-class}
-\alias{PeakAnnotation-classs}
+\alias{PeakAnnotations}
+\alias{show,PeakAnnotation-method}
+\alias{showAsCell,PeakAnnotations-method}
 \title{Peak annotations}
 \arguments{
 \item{peaks}{A \code{list} of peak m/z values to be annotated.}

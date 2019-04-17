@@ -2,7 +2,7 @@
 ##'
 ##' @name PeakAnnotation
 ##'
-##' @aliases class:PeakAnnotation class:PeakAnnotations PeakAnnotation-class PeakAnnotations-class PeakAnnotation PeakAnnotation-classs
+##' @aliases class:PeakAnnotation class:PeakAnnotations PeakAnnotation-class PeakAnnotations-class PeakAnnotation PeakAnnotations show,PeakAnnotation-method showAsCell,PeakAnnotations-method
 ##'
 ##' @description
 ##'
@@ -14,6 +14,8 @@
 ##'
 ##' @md
 ##' @exportClass PeakAnnotation PeakAnnotations
+##'
+##' @import ProtGenerics S4Vectors
 ##'
 ##' @examples
 ##' pa1 <- PeakAnnotation(peaks = list(123.3,
@@ -70,12 +72,12 @@ setMethod("show", "PeakAnnotation",
               cat(n, "annotated peaks\n")
           })
 
-##' @import S4Vectors
 .PeakAnnotations <-
     setClass("PeakAnnotations",
              contains = "SimpleList")
 
 ##' @export PeakAnnotations
+##' @importFrom methods extends
 PeakAnnotations <- function(...) {
     args <- list(...)
     if (length(args) == 1L && extends(class(args[[1L]]), "list"))
