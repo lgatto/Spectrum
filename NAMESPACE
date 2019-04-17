@@ -2,8 +2,11 @@
 
 export(PeakAnnotation)
 export(PeakAnnotations)
+export(Spectrum)
+export(Spectrum_elements)
 exportClasses(PeakAnnotation)
 exportClasses(PeakAnnotations)
+exportClasses(Spectrum)
 exportMethods(show)
 exportMethods(showAsCell)
 import(ProtGenerics)

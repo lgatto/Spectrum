@@ -41,9 +41,7 @@ pa1
 pa2 <- PeakAnnotation(peaks = list(c(345.3, 345.32, 345.35, 345.39, 345.4),
                                    657.01,
                                    1231.182),
-                      annotations = list("a5",
-                                         "z3",
-                                         "y7"))
+                      annotations = list("a5", "z3", "y7"))
 pa2
 
 pas <- PeakAnnotations(pa1, pa2)

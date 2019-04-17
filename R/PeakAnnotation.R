@@ -29,7 +29,9 @@
 ##' @exportClass PeakAnnotation PeakAnnotations
 ##'
 ##' @import ProtGenerics S4Vectors
-##'
+##' @importFrom methods extends
+##' @importFrom methods .valueClassTest is new validObject
+##' 
 ##' @examples
 ##' pa1 <- PeakAnnotation(peaks = list(123.3,
 ##'                                    c(234.1, 234.12, 234.15)),
@@ -39,9 +41,7 @@
 ##' pa2 <- PeakAnnotation(peaks = list(c(345.3, 345.32, 345.35, 345.39, 345.4),
 ##'                                    657.01,
 ##'                                    1231.182),
-##'                       annotations = list("a5",
-##'                                          "z3",
-##'                                          "y7"))
+##'                       annotations = list("a5", "z3", "y7"))
 ##' pa2
 ##'
 ##' pas <- PeakAnnotations(pa1, pa2)
@@ -66,7 +66,6 @@ NULL
     NULL
 }
 
-##' @importFrom methods .valueClassTest is new validObject
 setValidity("PeakAnnotation",
             function(object) {
                 msg <- .valid_peak_annotation(object)
@@ -91,16 +90,14 @@ setMethod("show", "PeakAnnotation",
              contains = "SimpleList")
 
 ##' @export PeakAnnotations
-##' @importFrom methods extends
 PeakAnnotations <- function(...) {
     args <- list(...)
     if (length(args) == 1L && extends(class(args[[1L]]), "list"))
         args <- args[[1L]]
-    x <- new2("PeakAnnotations",
-              listData = args,
-              elementType = "PeakAnnotation",
-              check = FALSE)
-    if (validObject(x)) x
+    new2("PeakAnnotations",
+         listData = args,
+         elementType = "PeakAnnotation",
+         check = TRUE)
 }
 
 
