@@ -2,20 +2,20 @@ Package: Spectrum
 Title: Spetrum Infrastructure for Mass Spectrometry Data
 Version: 0.0.1
 Authors@R:
-    person(given = "Laurent", family = "Gatto",
-	   email = "laurent.gatto@uclouvain.ne",
-	   role = c("aut", "cre"),
-	   comment = c(ORCID = "0000-0002-1520-2268"))
-    person(given = "Johannes", family = "Rainer",
-	    email = "Johannes.Rainer@eurac.edu",
-	    role = c("aut", "cre"),
-	    comment = c(ORCID = "0000-0002-6977-7147")),
-    person(given = "Michele", family = "Stravs",
-	    email = "massbank@eawag.ch",
-	    role = c("aut", "cre")),
-    person(given = "Sebastian", family = "Gibb",
-	    email = "mail@sebastiangibb.de",
-	    role = "aut"))
+    c(person(given = "Laurent", family = "Gatto",
+	     email = "laurent.gatto@uclouvain.be",
+	     role = c("aut", "cre"),
+	     comment = c(ORCID = "0000-0002-1520-2268")),
+      person(given = "Johannes", family = "Rainer",
+	     email = "Johannes.Rainer@eurac.edu",
+	     role = "aut",
+	     comment = c(ORCID = "0000-0002-6977-7147")),
+      person(given = "Michele", family = "Stravs",
+	     email = "massbank@eawag.ch",
+	     role = "aut"),
+      person(given = "Sebastian", family = "Gibb",
+	     email = "mail@sebastiangibb.de",
+	     role = "aut"))
 Description: The Spectrum packages defines a flexible infrastructure
    for storing and handling for single mass spectrometry spectra.
 BugReports: https://github.com/lgatto/Spectrum/issues
@@ -24,3 +24,4 @@ License: Artistic-2.0
 Encoding: UTF-8
 LazyData: true
 biocViews: Infrastructure, Proteomics, MassSpectrometry, Metabolomics
+RoxygenNote: 6.1.1
