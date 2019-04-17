@@ -5,6 +5,7 @@
 \alias{class:Spectrum}
 \alias{Spectrum-class}
 \alias{[[<-,Spectrum-method}
+\alias{[<-,Spectrum-method}
 \alias{$<-,Spectrum-method}
 \alias{Spectrum_elements}
 \title{Spectrum class}
@@ -55,4 +56,11 @@ sp
 ## All current elements (mandatory and optional) and their
 ## respective classes
 sapply(sp, class)
+
+## Setting intensity and m/z values. These must be set together,
+## as these two elements must be of the same length.
+mz <- as.numeric(sample(1000, 10))
+i <- as.numeric(sample(1e3:1e5, 10))
+sp[c("intensity", "mz")] <- list(i, mz)
+plot(sp$mz, sp$intensity, type = "h")
 }

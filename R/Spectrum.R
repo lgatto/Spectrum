@@ -2,7 +2,7 @@
 ##'
 ##' @name Spectrum
 ##'
-##' @aliases class:Spectrum Spectrum Spectrum-class [[<-,Spectrum-method $<-,Spectrum-method Spectrum_elements
+##' @aliases class:Spectrum Spectrum Spectrum-class [[<-,Spectrum-method [<-,Spectrum-method $<-,Spectrum-method Spectrum_elements
 ##'
 ##' @description
 ##'
@@ -23,6 +23,7 @@
 ##' @md
 ##' 
 ##' @exportClass Spectrum
+##' 
 ##' @examples
 ##' ## An empty spectrum
 ##' sp <- Spectrum()
@@ -54,6 +55,13 @@
 ##' ## All current elements (mandatory and optional) and their
 ##' ## respective classes
 ##' sapply(sp, class)
+##'
+##' ## Setting intensity and m/z values. These must be set together,
+##' ## as these two elements must be of the same length.
+##' mz <- as.numeric(sample(1000, 10))
+##' i <- as.numeric(sample(1e3:1e5, 10))
+##' sp[c("intensity", "mz")] <- list(i, mz)
+##' plot(sp$mz, sp$intensity, type = "h")
 NULL
 
 .Spectrum <- setClass("Spectrum",
@@ -120,6 +128,10 @@ Spectrum_elements <- c(msLevel = "integer",
     slot_classes <- sapply(object@listData, class)
     if (!all(slot_classes[names(Spectrum_elements)] == Spectrum_elements))
         return("Mandatory element of wrong class")
+    if (!identical(length(object$mz), length(object$intensity)))
+        return("Intensities and m/z must be of same lengths.")
+    ## TODO: check cardinality of mandatory elements. All but
+    ## PeaksAnnotation must be 1.
     NULL
 }
 
@@ -147,3 +159,9 @@ setReplaceMethod("$", "Spectrum",
                      Spectrum(xl)
                  })
 
+
+
+##' @importFrom methods callNextMethod
+setReplaceMethod("[", "Spectrum",
+    function(x, i, j, ..., value)
+        Spectrum(callNextMethod(x@listData, i, value = value)))
