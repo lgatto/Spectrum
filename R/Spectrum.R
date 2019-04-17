@@ -6,10 +6,19 @@
 ##'
 ##' @description
 ##'
-##' TODO
+##' The `Spectrum` class is a simple list of elements. There are two
+##' classes of elements. Mandatory elements such as the MS level of
+##' the spectrum (`msLevel`), its retention time (`rtime`), ... that
+##' must be of a pre-defined class (see the `Spectrum_elements` vector
+##' for their names and classes). Optional elements with arbitrary
+##' names and classes can also be added.
 ##'
-##' @param ... Mandatory spectrum elements. See `Spectrum_elements`
-##'     for their names and classes.
+##' Object are created with the `Spetrum(...)`
+##' constructor. `Spectrum()` generates a instance with empty valid
+##' values.
+##'
+##' @param ... Mandatory spectrum elements or list thereof. See
+##'     `Spectrum_elements` for their names and classes.
 ##'
 ##' @md
 ##' 
@@ -18,6 +27,9 @@
 ##' ## An empty spectrum
 ##' sp <- Spectrum()
 ##' sp
+##'
+##' ## Mandatory elements
+##' Spectrum_elements
 ##'
 ##' ## Updating mandatory elements
 ##' sp$msLevel
@@ -38,6 +50,11 @@
 ##' ## Adding arbitrary elements
 ##' sp$foo <- "bar"
 ##' sp
+##'
+##' ## All current elements (mandatory and optional) and their
+##' ## respective classes
+##' sapply(sp, class)
+NULL
 
 .Spectrum <- setClass("Spectrum",
                       contains = "SimpleList")
@@ -58,7 +75,7 @@ Spectrum <- function(...) {
 .Spectrum_prototype <- function() {
     list(msLevel = NA_integer_,
          peaksCount = NA_integer_,
-         rt = NA_real_,
+         rtime = NA_real_,
          acquisitionNum = NA_integer_,
          scanIndex  =  NA_integer_,
          tic  =  NA_real_,
@@ -80,7 +97,7 @@ Spectrum <- function(...) {
 ##' @export Spectrum_elements
 Spectrum_elements <- c(msLevel = "integer",
                        peaksCount = "integer",
-                       rt = "numeric",
+                       rtime = "numeric",
                        acquisitionNum = "integer",
                        scanIndex = "integer",
                        tic = "numeric",

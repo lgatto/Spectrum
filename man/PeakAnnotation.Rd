@@ -31,6 +31,9 @@ Currently, there are no constrains on either \code{peaks} and \code{annotations}
 elements. The latters can be either descriptive characters, as in the
 examples below, or could be encoded as dataframes. This is likely to change
 in the future.
+
+Objects are created with the \code{PeakAnnotation(peaks, annotations)}
+and \code{PeakAnnotations(...)} contructors.
 }
 \examples{
 pa1 <- PeakAnnotation(peaks = list(123.3,

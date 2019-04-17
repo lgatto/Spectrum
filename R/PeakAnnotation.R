@@ -15,11 +15,13 @@
 ##' instance in case of profile mode data) are annotated by an
 ##' annotation.
 ##'
-##'
 ##' Currently, there are no constrains on either `peaks` and `annotations`
 ##' elements. The latters can be either descriptive characters, as in the
 ##' examples below, or could be encoded as dataframes. This is likely to change
 ##' in the future.
+##'
+##' Objects are created with the `PeakAnnotation(peaks, annotations)`
+##' and `PeakAnnotations(...)` contructors.
 ##'
 ##' @param peaks A `list` of peak m/z values to be annotated.
 ##' @param annotations A `list` of peak annotations.
