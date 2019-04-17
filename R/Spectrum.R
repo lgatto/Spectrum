@@ -13,6 +13,10 @@
 ##' for their names and classes). Optional elements with arbitrary
 ##' names and classes can also be added.
 ##'
+##' If, as some point, some elements were to become mandatory, their
+##' names and classes would simply need to be added to the
+##' `Spectrum_elements` vector. 
+##'
 ##' Object are created with the `Spetrum(...)`
 ##' constructor. `Spectrum()` generates a instance with empty valid
 ##' values.
