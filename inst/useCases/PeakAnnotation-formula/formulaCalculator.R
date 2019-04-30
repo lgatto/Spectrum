@@ -186,7 +186,7 @@ order.formula <- function(formula, as.formula=TRUE, as.list=FALSE)
     count <- count + atomDBE[[element]] * formula[[element]]
   return(count)
 }
-dbe <- Vectorize(dbe)
+dbe <- Vectorize(.dbe)
 
 #' Interconvert molecular formula representations
 #' 

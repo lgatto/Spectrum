@@ -80,6 +80,6 @@ annotateSubformula <- function(sp,
   annotations$low <- NULL
   annotations$intensity <- NULL
   annotations$peakIndex <- NULL
-  anno <- alply(annotations, 1, function(row) row)
+  anno <- alply(annotations, 1, function(row) as.list(row))
   return(PeakAnnotation(peaks = peaks, annotations =  anno))
 }
