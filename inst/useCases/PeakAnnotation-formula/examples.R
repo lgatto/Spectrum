@@ -1,5 +1,5 @@
 
-
+library(Spectrum)
 sp <- Spectrum()
 sp$msLevel <- 2L
 sp[c("mz", "intensity")] <- list(
@@ -19,10 +19,16 @@ sp[c("mz", "intensity")] <- list(
 #
 sp$name <- "Cefalexin"
 sp$formula <- "C16H17N3O4S"
-
+sp$smiles <- "CC1=C(N2C(C(C2=O)NC(=O)C(C3=CC=CC=C3)N)SC1)C(=O)O"
 # the unlucky, hopefully at some point substituted
 # designation for "[M+H]+" in RMassBank
 sp$ion <- "pH"
 
+
+source(system.file("useCases/PeakAnnotation-formula/annotateSubformula.R", package = "Spectrum"))
+source(system.file("useCases/PeakAnnotation-formula/formulaCalculator.R", package = "Spectrum"))
+source(system.file("useCases/PeakAnnotation-formula/adductInformation.R", package = "Spectrum"))
+
 pa <- annotateSubformula(sp)
 sp$peakAnnotation <- pa
+
